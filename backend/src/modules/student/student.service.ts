@@ -31,6 +31,21 @@ export class StudentService {
     };
   }
 
+  async getVerified(studentId: string) {
+    await this.databaseService.studentProfile.update({
+      where: {
+        id: studentId
+      },
+      data: {
+        isVarified: true
+      }
+    });
+
+    return {
+      message: "Student is varified now"
+    };
+  }
+
   async findAll() {
     return this.databaseService.studentProfile.findMany({});
   }

@@ -5,7 +5,8 @@ import {
   Body,
   Param,
   Delete,
-  Req
+  Req,
+  Put
 } from "@nestjs/common";
 import { StudentService } from "./student.service";
 import { CreateStudentDto } from "./dto/create-student.dto";
@@ -28,6 +29,12 @@ export class StudentController {
   @Get()
   async findAll() {
     return this.studentService.findAll();
+  }
+
+  @Put("/get-varified")
+  async getVarified(@Req() req: Request) {
+    const user = req.user as { id: string };
+    return this.studentService.getVerified(user.id);
   }
 
   @Get(":id")

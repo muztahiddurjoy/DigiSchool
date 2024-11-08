@@ -24,7 +24,8 @@ model StudentProfile {
   id         String  @id
   name       String
   email      String
-  contacts   String[] 
+  contacts   String[]
+  isVarified Boolean @default(false) 
   age        Int
   enrolledIn String?
   grade      Grade?  @relation(fields: [enrolledIn], references: [name])
@@ -54,7 +55,7 @@ model InstructiorProfile {
 }
 
 model Donation {
-  id String @id
+  id String @id @default(uuid())
   donatorName String
   materials String[]
   money Int?
@@ -76,9 +77,10 @@ model School {
 }
 
 model MaterialRequest {
-  id String @id
+  id String @id @default(uuid())
   donationsRecieved Donation[]
   message  String
+  materialType  String
   schoolId String
   requestedBySchool School  @relation(fields: [schoolId], references: [id])
 }
