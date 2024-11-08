@@ -7,7 +7,7 @@ const DonorProfile = ({children}:React.PropsWithChildren) => {
     <div className='pt-20'>
     <SidebarProvider>
         <DonorSidebar/>
-        <main>
+        <main className='w-full'>
             <SidebarTrigger/>
             {children}
         </main>

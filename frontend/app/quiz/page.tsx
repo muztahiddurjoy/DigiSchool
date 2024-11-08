@@ -1,4 +1,5 @@
 import QuizContainer from '@/components/quiz/quiz-container'
+import { useToast } from '@/hooks/use-toast'
 import React from 'react'
 
 const QuizPage = () => {

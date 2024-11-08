@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button'
 import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar'
+import Link from 'next/link'
 import React from 'react'
 
 const StudentSidebar = () => {
@@ -14,12 +15,12 @@ const StudentSidebar = () => {
         <SidebarMenu>
             <SidebarMenuItem>
                 <SidebarMenuButton asChild>
-                    <button className="py-2 my-1 rounded-md px-3 transition-all ease-in-out duration-150 bg-primary/30 hover:bg-primary/40">Student profile</button>
+                    <Link href="/profile/student/" className="py-2 my-1 rounded-md px-3 transition-all ease-in-out duration-150 bg-primary/30 hover:bg-primary/40">Student profile</Link>
                 </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>
                 <SidebarMenuButton asChild>
-                    <button className="py-2 my-1 rounded-md px-3 transition-all ease-in-out duration-150 bg-primary/30 hover:bg-primary/40">Donors</button>
+                    <Link href="/profile/student/donors" className="py-2 my-1 rounded-md px-3 transition-all ease-in-out duration-150 bg-primary/30 hover:bg-primary/40">Donors</Link>
                 </SidebarMenuButton>
             </SidebarMenuItem>
         </SidebarMenu>

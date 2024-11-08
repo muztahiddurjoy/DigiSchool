@@ -1,3 +1,4 @@
+"use client"
 import Link from 'next/link'
 import React from 'react'
 import { Button, buttonVariants } from '../ui/button'
@@ -18,8 +19,10 @@ const Navbar = () => {
         </li>
       </ul>
       <div className="flex justify-end items-center gap-1">
+        {window.localStorage.getItem("accessToken_digi")?
+        <Link href="/profile" className={buttonVariants()}>Dashboard</Link>:<div className='flex justify-end items-center gap-1'>
         <Link href="/login" className={buttonVariants({variant:"outline"})}>Login</Link>
-        <Link href="/register" className={buttonVariants()}>Register</Link>
+        <Link href="/register" className={buttonVariants()}>Register</Link></div>}
       </div>
     </div>
   )

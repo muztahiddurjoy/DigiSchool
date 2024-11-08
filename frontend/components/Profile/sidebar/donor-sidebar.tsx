@@ -12,12 +12,7 @@ const DonorSidebar = () => {
         <SidebarMenu>
             <SidebarMenuItem>
                 <SidebarMenuButton asChild>
-                    <button className="py-2 my-1 rounded-md px-3 transition-all ease-in-out duration-150 bg-primary/30 hover:bg-primary/40">Student profile</button>
-                </SidebarMenuButton>
-            </SidebarMenuItem>
-            <SidebarMenuItem>
-                <SidebarMenuButton asChild>
-                    <button className="py-2 my-1 rounded-md px-3 transition-all ease-in-out duration-150 bg-primary/30 hover:bg-primary/40">Donation Request</button>
+                    <button className="py-2 my-1 rounded-md px-3 transition-all ease-in-out duration-150 bg-primary/30 hover:bg-primary/40">Donations</button>
                 </SidebarMenuButton>
             </SidebarMenuItem>
 

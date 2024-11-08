@@ -2,7 +2,9 @@ import React from 'react'
 import { Card, CardContent, CardFooter } from '../ui/card'
 import SchoolAdapter from './school-adapter'
 import { Book, BookOpen, Copy, Dot, HeartHandshake } from 'lucide-react'
-import { Button } from '../ui/button'
+import { Button, buttonVariants } from '../ui/button'
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '../ui/dialog'
+import { Input } from '../ui/input'
 
 const MaterialRequestAdapter = () => {
   return (
@@ -19,7 +21,20 @@ const MaterialRequestAdapter = () => {
         </ul>
       </CardContent>
       <CardFooter className='flex justify-end'>
-        <Button size="sm"><HeartHandshake size={16}/> Donate</Button>
+      <Dialog>
+          <DialogTrigger className={buttonVariants()}><HeartHandshake size={15}/> Donate</DialogTrigger>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>How Much You Can Donate?</DialogTitle>
+              <DialogDescription>
+                <Input className='mt-5' placeholder='1000 BDT'/>
+                <div className='flex justify-end mt-5'>
+                  <Button size="sm">Donate</Button>
+                </div>
+              </DialogDescription>
+            </DialogHeader>
+          </DialogContent>
+        </Dialog>
       </CardFooter>
     </Card>
   )
