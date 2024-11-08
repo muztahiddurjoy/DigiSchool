@@ -5,7 +5,7 @@ import { Button, buttonVariants } from '../ui/button'
 import Image from 'next/image'
 import Link from 'next/link'
 
-const NearestSchoolAdapter = (props: {name:string} ) => {
+const NearestSchoolAdapter = (props: {name:string,id: string} ) => {
   return (
     <Card>
       <CardHeader>
@@ -20,7 +20,7 @@ const NearestSchoolAdapter = (props: {name:string} ) => {
         <p className='text-sm'>Card Content</p>
       </CardContent> */}
       <CardFooter className='flex items-center justify-end'>
-        <Link href="/quiz" className={buttonVariants({size:'sm'})}><Paperclip size={20}/> Apply</Link>
+        <Link href={`/quiz/${props.id}`} className={buttonVariants({size:'sm'})}><Paperclip size={20}/> Apply</Link>
       </CardFooter>
     </Card>
   )

@@ -3,6 +3,8 @@ import React from 'react'
 import QuizAdapter from './quiz-adapter'
 import { Button } from '../ui/button'
 import { useToast } from '@/hooks/use-toast'
+import axios from 'axios'
+import { apiUrl } from '../Login/login-form'
 
 const QuizContainer = ({id}:{id:string}) => {
   
@@ -12,9 +14,12 @@ const QuizContainer = ({id}:{id:string}) => {
         {Array(5).fill("_").map((v,i)=><QuizAdapter key={i}/>)}
         <div className="flex items-center justify-end mb-10">
           <Button onClick={e=>{
-            toast({
-              title:'Submitted!',
-              description:'thanks for completing the quiz. The School will review the result'
+            axios.get(`${apiUrl}/school/${id}/enroll`,{
+              headers: {
+                Authorization: `Bearer ${window.localStorage.getItem("accessToken_digi")}`
+              }
+            }).then(()=>{
+              window.location.href='/profile/student'
             })
           }}>
             Submit

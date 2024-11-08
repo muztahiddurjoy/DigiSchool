@@ -19,7 +19,7 @@ const NearestDigiSchoolsPage = () => {
         <p className='text-sm text-primary font-semibold'>DigiSchools in Your Area</p>
         <p className="text-3xl font-bold">Get Into a DigiSchool</p>
     <div className=' grid grid-cols-4 gap-5 mt-10'>  
-    {schools?.map((school,i)=><NearestSchoolAdapter key={i} name={school.name}/>)}
+    {schools?.map((school,i)=><NearestSchoolAdapter key={i} name={school.name} id={school.id}/>)}
     </div>
     </div>
   )
