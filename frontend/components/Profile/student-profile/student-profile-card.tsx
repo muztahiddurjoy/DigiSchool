@@ -18,9 +18,7 @@ const StudentProfileCard = () => {
 
   const downloadId = ()=>{
     const studentId = window.localStorage.getItem("id_digi");
-    axios.get(`${apiUrl}/student/${studentId}/id-card`).then(res=>{
-      console.log(res)
-    })
+    window.location.href=`${apiUrl}/student/${studentId}/id-card`
   }
   return (
     <div className='bg-primary p-3 rounded-lg w-full flex gap-3 items-center'>
@@ -29,7 +27,7 @@ const StudentProfileCard = () => {
             <p className="text-xl font-bold">{student?.name}</p>
             <p className="mt-1 text-sm">Grade {student?.enrolledIn}</p>
             <p className="mt-1 text-sm">ID : {student?.id}</p>
-            <Button  variant="secondary" className='mt-3 text-black' size="sm"><Download size={15}/> Download ID Card</Button>
+            <Button onClick={downloadId} variant="secondary" className='mt-3 text-black' size="sm"><Download size={15}/> Download ID Card</Button>
         </div>
     </div>
   )
