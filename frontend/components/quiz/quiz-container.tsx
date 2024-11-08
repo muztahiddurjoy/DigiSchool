@@ -4,7 +4,7 @@ import QuizAdapter from './quiz-adapter'
 import { Button } from '../ui/button'
 import { useToast } from '@/hooks/use-toast'
 
-const QuizContainer = () => {
+const QuizContainer = ({id}:{id:string}) => {
   
   const {toast} = useToast()
   return (
