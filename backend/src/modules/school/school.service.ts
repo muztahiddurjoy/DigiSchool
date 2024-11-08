@@ -43,8 +43,8 @@ export class SchoolService {
     };
   }
 
-  findAll() {
-    return `This action returns all school`;
+  async findAll() {
+    return this.databaseService.school.findMany({});
   }
 
   async becomeManager(schoolId: string, instructorId: string) {

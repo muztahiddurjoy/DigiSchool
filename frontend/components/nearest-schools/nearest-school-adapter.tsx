@@ -5,12 +5,12 @@ import { Button, buttonVariants } from '../ui/button'
 import Image from 'next/image'
 import Link from 'next/link'
 
-const NearestSchoolAdapter = () => {
+const NearestSchoolAdapter = (props: {name:string} ) => {
   return (
     <Card>
       <CardHeader>
         <Image src="/school.jpg" height={200} width={300} className='w-[300px] h-[200px] rounded-md object-cover' alt=''/>
-        <CardTitle className='font-bold mt-5'>Random School</CardTitle>
+        <CardTitle className='font-bold mt-10'>{props.name}</CardTitle>
         <CardDescription className='flex items-center'>
             <MapPin size={20} className='text-primary font-semibold'/>
             Mohammadpur, Dhaka
