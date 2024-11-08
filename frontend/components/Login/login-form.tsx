@@ -23,6 +23,7 @@ const LoginForm = () => {
         console.log(res);
         window.localStorage.setItem("accessToken_digi",res.data.accessToken)
         window.localStorage.setItem("id_digi",res.data.id)
+        window.location.href = "/profile/student"
       }).catch(error=>{
         console.log(error);
       })

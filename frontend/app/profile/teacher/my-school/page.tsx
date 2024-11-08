@@ -1,8 +1,11 @@
+import SchoolAdapter from '@/components/DonationRequests/school-adapter'
 import React from 'react'
 
 const MySchool = () => {
   return (
-    <div>MySchool</div>
+    <div className='px-20'>
+        <SchoolAdapter/>
+    </div>
   )
 }
 

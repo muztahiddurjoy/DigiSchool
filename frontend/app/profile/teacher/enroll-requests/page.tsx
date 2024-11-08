@@ -1,5 +1,6 @@
 import { Button, buttonVariants } from '@/components/ui/button'
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
+import { Input } from '@/components/ui/input'
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import React from 'react'
 
@@ -7,7 +8,10 @@ const EnrollRequests = () => {
   return (
     <div>
         <div className='px-10'>
-        <Table className='w-full'>
+            <div className="flex justify-end">
+                <Input placeholder='Search' className='w-[200px] mb-5'/>
+            </div>
+        <Table className='w-full pt-5'>
         <TableCaption>A list of students who want to get enrolled to your school.</TableCaption>
           <TableHeader className='bg-primary '>
             <TableRow className='[&>*]:text-black'>
@@ -21,13 +25,14 @@ const EnrollRequests = () => {
           </TableHeader>
           <TableBody>
             <TableRow>
-              <TableCell className="font-medium">INV001</TableCell>
-              <TableCell className="font-medium">{new Date().toLocaleDateString()}</TableCell>
-              <TableCell>Donated to Random Student</TableCell>
-              <TableCell>Credit Card</TableCell>
+              <TableCell className="font-medium">000001</TableCell>
+              <TableCell><img src="/register_bg.jpg" className='h-[50px] w-[50px] rounded-md object-cover'/></TableCell>
+              <TableCell className="font-medium">New Student</TableCell>
+              <TableCell>4</TableCell>
+              <TableCell>7/10</TableCell>
               <TableCell className="flex items-center justify-end gap-2">
                 <Dialog>
-                  <DialogTrigger className={buttonVariants({size:"sm"})}>Open</DialogTrigger>
+                  <DialogTrigger className={buttonVariants({size:"sm"})}>Approve</DialogTrigger>
                   <DialogContent>
                     <DialogHeader>
                       <DialogTitle>Are you sure absolutely sure?</DialogTitle>
