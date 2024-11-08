@@ -28,6 +28,8 @@ model StudentProfile {
   contacts   String[]
   isVarified Boolean @default(false) 
   age        Int
+  affilatedSchoolId String? 
+  school School?  @relation(fields: [affilatedSchoolId], references: [id])
   enrolledIn String?
   grade      Grade?  @relation(fields: [enrolledIn], references: [name])
   isVolunteer Boolean
@@ -73,6 +75,7 @@ model School {
   id String @id @default(uuid())
   name String
   grades Grade[]
+  students StudentProfile[]
   insturctors InstructiorProfile[]
   materialRequests  MaterialRequest[]
 }
