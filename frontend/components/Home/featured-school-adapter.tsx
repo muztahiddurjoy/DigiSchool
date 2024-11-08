@@ -1,8 +1,9 @@
 import React from 'react'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '../ui/card'
-import { Link, MapPin, School, School2 } from 'lucide-react'
+import { MapPin, School, School2 } from 'lucide-react'
 import { Button, buttonVariants } from '../ui/button'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const FeaturedSchoolAdapter = () => {
   return (
@@ -19,7 +20,7 @@ const FeaturedSchoolAdapter = () => {
         <p className='text-sm'>Card Content</p>
       </CardContent> */}
       <CardFooter className='flex items-center justify-end'>
-        <Link className={buttonVariants({size:'sm'})}><School2 size={20}/> Apply</Link>
+        <Link href="/" className={buttonVariants({size:'sm'})}><School2 size={20}/> Apply</Link>
       </CardFooter>
     </Card>
   )
