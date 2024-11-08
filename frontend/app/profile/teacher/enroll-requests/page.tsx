@@ -1,3 +1,5 @@
+import { Button, buttonVariants } from '@/components/ui/button'
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import React from 'react'
 
@@ -23,7 +25,24 @@ const EnrollRequests = () => {
               <TableCell className="font-medium">{new Date().toLocaleDateString()}</TableCell>
               <TableCell>Donated to Random Student</TableCell>
               <TableCell>Credit Card</TableCell>
-              <TableCell className="flex items-center justify-end gap-2">2.00 BDT</TableCell>
+              <TableCell className="flex items-center justify-end gap-2">
+                <Dialog>
+                  <DialogTrigger className={buttonVariants({size:"sm"})}>Open</DialogTrigger>
+                  <DialogContent>
+                    <DialogHeader>
+                      <DialogTitle>Are you sure absolutely sure?</DialogTitle>
+                      <DialogDescription>
+                        Are you sure that you want to enroll that student in?
+                        <div className="flex justify-end items-center gap-2 mt-5">
+                            <Button size="sm">Enroll</Button>
+                            <Button size="sm" variant="destructive">Cancel</Button>
+                        </div>
+                      </DialogDescription>
+                    </DialogHeader>
+                  </DialogContent>
+                </Dialog>
+                
+              </TableCell>
             </TableRow>
           </TableBody>
         </Table>

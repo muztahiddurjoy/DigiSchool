@@ -39,7 +39,7 @@ const LoginForm = () => {
         <Input value={email} onChange={e=> setemail(e.target.value)} placeholder='john@doe.com'/>
         <div className="mt-2"></div>
         <Label className='text-xs'>Password</Label>
-        <Input className='' value={password} onChange={e=>{setpassword(e.target.value)}}/>
+        <Input className='' type='password' value={password} onChange={e=>{setpassword(e.target.value)}}/>
       </CardContent>
       <CardFooter className='flex flex-col items-end'>
         <Button onClick={login}>Login</Button>
