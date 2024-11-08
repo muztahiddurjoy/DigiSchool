@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card, CardContent, CardFooter } from '../ui/card'
 import SchoolAdapter from './school-adapter'
-import { Book, BookOpen, Copy, Dot } from 'lucide-react'
+import { Book, BookOpen, Copy, Dot, HeartHandshake } from 'lucide-react'
 import { Button } from '../ui/button'
 
 const MaterialRequestAdapter = () => {
@@ -19,7 +19,7 @@ const MaterialRequestAdapter = () => {
         </ul>
       </CardContent>
       <CardFooter className='flex justify-end'>
-        <Button size="sm"><Copy size={16}/> Contact Details</Button>
+        <Button size="sm"><HeartHandshake size={16}/> Donate</Button>
       </CardFooter>
     </Card>
   )
