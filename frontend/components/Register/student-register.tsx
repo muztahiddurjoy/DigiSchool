@@ -14,7 +14,7 @@ const StudentRegister = () => {
   const [password, setpassword] = useState('')
   const [grade, setgrade] = useState('')
   const [phone, setphone] = useState('')
-  
+
   return (
     <div className='grid grid-cols-2 gap-3'>
         <div>

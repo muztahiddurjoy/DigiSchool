@@ -54,7 +54,10 @@ export class StudentService {
 
   findOne(id: string) {
     return this.databaseService.studentProfile.findUnique({
-      where: { id: id }
+      where: { id: id },
+      include: {
+        school: true
+      }
     });
   }
 
@@ -103,12 +106,6 @@ export class StudentService {
           <text x="50%" y="50%" text-anchor="middle" dy="0.25em" fill="#000">${student.email}</text>
       </svg>
   `);
-
-//     const label = Buffer.from(`
-//     <svg width="${width}" height="${height}">
-//         <text x="50%" y="50%" text-anchor="middle" dy="0.25em" fill="#000">${svgBufferName}</text>
-//     </svg>
-// `);
 
     const fileBuffer = await sharp(
       "/Users/mdkaifibnzaman/IdeaProjects/DigiSchool/backend/src/modules/core/id_temp.png"

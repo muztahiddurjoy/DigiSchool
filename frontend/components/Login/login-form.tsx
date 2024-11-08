@@ -1,14 +1,32 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '../ui/card'
 import { Input } from '../ui/input'
 import { Label } from '../ui/label'
 import { Button } from '../ui/button'
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '../ui/dialog'
+import axios from 'axios'
+import { error, log } from 'console'
+
+export const apiUrl = "http://100.65.180.24:1337";
 
 const LoginForm = () => {
     const [email, setemail] = useState<string>('')
     const [password, setpassword] = useState<string>('')
+
+    const baseUrl = apiUrl
+    const login = () => {
+      axios.post(`${baseUrl}/auth/local/login`,{
+        email: email,
+        password: password
+      }).then(res=>{
+        console.log(res);
+        window.localStorage.setItem("accessToken_digi",res.data.accessToken)
+        window.localStorage.setItem("id_digi",res.data.id)
+      }).catch(error=>{
+        console.log(error);
+      })
+    }
     
   return (
     <Card className='min-w-[300px]'>
@@ -21,10 +39,10 @@ const LoginForm = () => {
         <Input value={email} onChange={e=> setemail(e.target.value)} placeholder='john@doe.com'/>
         <div className="mt-2"></div>
         <Label className='text-xs'>Password</Label>
-        <Input className=''/>
+        <Input className='' value={password} onChange={e=>{setpassword(e.target.value)}}/>
       </CardContent>
       <CardFooter className='flex flex-col items-end'>
-        <Button>Login</Button>
+        <Button onClick={login}>Login</Button>
         <Dialog>
           <DialogTrigger className='text-sm mt-2'>Forgot Password?</DialogTrigger>
           <DialogContent>

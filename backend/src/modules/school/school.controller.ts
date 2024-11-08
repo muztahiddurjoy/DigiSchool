@@ -1,6 +1,17 @@
-import { Controller, Get, Post, Body, Param, Delete } from "@nestjs/common";
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Param,
+  Delete,
+  UseGuards,
+  Req
+} from "@nestjs/common";
 import { SchoolService } from "./school.service";
 import { CreateSchoolDto } from "./dto/create-school.dto";
+import { AccessTokenGuard } from "../auth/auth.guard";
+import { Request } from "express";
 //import { UpdateSchoolDto } from "./dto/update-school.dto";
 
 @Controller("school")
@@ -20,6 +31,13 @@ export class SchoolController {
   @Get(":id")
   async findOne(@Param("id") id: string) {
     return this.schoolService.findOne(id);
+  }
+
+  @UseGuards(AccessTokenGuard)
+  @Get("/:id/enroll")
+  async enroll(@Param("id") id: string, @Req() req: Request) {
+    const user = req.user as { id: string };
+    return this.schoolService.enroll(id, user.id);
   }
 
   // @Patch(":id")

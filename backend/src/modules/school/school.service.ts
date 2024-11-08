@@ -74,6 +74,17 @@ export class SchoolService {
     });
   }
 
+  async enroll(schoolId: string, studentId: string) {
+    await this.databaseService.studentProfile.update({
+      data: {
+        affilatedSchoolId: schoolId
+      },
+      where: {
+        id: studentId
+      }
+    });
+  }
+
   // update(id: number, updateSchoolDto: UpdateSchoolDto) {
   //   return `This action updates a #${id} school`;
   // }

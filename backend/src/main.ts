@@ -14,6 +14,7 @@ const main = async () => {
     .build();
   const documentFactory = () => SwaggerModule.createDocument(app, config);
   SwaggerModule.setup("api", app, documentFactory);
+  app.enableCors();
   await app.listen(1337);
 };
 
