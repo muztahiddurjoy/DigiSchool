@@ -17,7 +17,7 @@ export class InstructorController {
   constructor(private readonly instructorService: InstructorService) {}
 
   @Post()
-  create(
+  async create(
     @Body() createInstructorDto: CreateInstructorDto,
     @Req() req: Request
   ) {
@@ -26,8 +26,18 @@ export class InstructorController {
   }
 
   @Get()
-  findAll() {
+  async findAll() {
     return this.instructorService.findAll();
+  }
+
+  @Get("/:id/approve")
+  async approve(@Param("id") id: string) {
+    return this.instructorService.approveInstructor(id);
+  }
+
+  @Get("/:managerId/upapproved")
+  async getAprroved(@Param("managerId") managerId: string) {
+    return this.instructorService.findAllUnvarifiedInstructors(managerId);
   }
 
   // @Get(":id")
@@ -42,7 +52,6 @@ export class InstructorController {
   // ) {
   //   return this.instructorService.update(id, updateInstructorDto);
   // }
-
   @Delete(":id")
   remove(@Param("id") id: string) {
     return this.instructorService.remove(+id);

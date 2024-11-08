@@ -8,17 +8,17 @@ export class SchoolController {
   constructor(private readonly schoolService: SchoolService) {}
 
   @Post()
-  create(@Body() createSchoolDto: CreateSchoolDto) {
+  async create(@Body() createSchoolDto: CreateSchoolDto) {
     return this.schoolService.create(createSchoolDto);
   }
 
   @Get()
-  findAll() {
+  async findAll() {
     return this.schoolService.findAll();
   }
 
   @Get(":id")
-  findOne(@Param("id") id: string) {
+  async findOne(@Param("id") id: string) {
     return this.schoolService.findOne(id);
   }
 
