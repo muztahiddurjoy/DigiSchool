@@ -1,0 +1,92 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       String @id @default(uuid())
+  email    String @unique
+  password String
+
+  refreshToken String?
+
+  registeredAt DateTime @default(now())
+
+  //relational stuffs
+  donations Donation[]
+}
+
+model StudentProfile {
+  id         String  @id
+  name       String
+  email      String
+  contacts   String[] 
+  age        Int
+  enrolledIn String?
+  grade      Grade?  @relation(fields: [enrolledIn], references: [name])
+  isVolunteer Boolean
+  volunteerProfile VolunteerProfile?
+}
+
+model Grade {
+  name String @id
+  instructors InstructiorProfile[]
+  enrolledStudents StudentProfile[]
+  offeringSchools School[]
+}
+
+model InstructiorProfile {
+  id           String   @id
+  name         String
+  email        String
+  contacts     String[]
+  instructorOf Grade[]
+  affilatedSchoolId String? 
+  affilatedSchool School?  @relation(fields: [affilatedSchoolId], references: [id])
+  isSchoolManager Boolean
+  isVarified      Boolean
+
+  joiningDate DateTime @default(now())
+}
+
+model Donation {
+  id String @id
+  donatorName String
+  materials String[]
+  money Int?
+  materialType String?
+  donatorUserId String?
+  donator User? @relation(fields: [donatorUserId], references: [id]) 
+  materialRequestId String
+  materialRequest MaterialRequest @relation(fields: [materialRequestId], references: [id])
+
+  createdAt DateTime @default(now())
+}
+
+model School {
+  id String @id
+  name String
+  grades Grade[]
+  managedBy InstructiorProfile[]
+  materialRequests  MaterialRequest[]
+}
+
+model MaterialRequest {
+  id String @id
+  donationsRecieved Donation[]
+  message  String
+  schoolId String
+  requestedBySchool School  @relation(fields: [schoolId], references: [id])
+}
+
+model VolunteerProfile {
+  id String @id
+  name String
+  studentId String? @unique
+  student StudentProfile?  @relation(fields: [studentId], references: [id])
+}
+
