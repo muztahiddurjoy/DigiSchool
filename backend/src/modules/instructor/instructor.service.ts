@@ -32,6 +32,41 @@ export class InstructorService {
     return `This action returns all instructor`;
   }
 
+  async findAllUnvarifiedInstructors(managerId) {
+    const manager = await this.databaseService.instructiorProfile.findUnique({
+      where: {
+        id: managerId
+      },
+      include: {
+        affilatedSchool: true
+      }
+    });
+
+    const teachers = await this.databaseService.instructiorProfile.findMany({
+      where: {
+        affilatedSchoolId: manager.affilatedSchoolId,
+        isVarified: false
+      }
+    });
+
+    return teachers;
+  }
+
+  async approveInstructor(instructorId: string) {
+    await this.databaseService.instructiorProfile.update({
+      data: {
+        isVarified: true
+      },
+      where: {
+        id: instructorId
+      }
+    });
+
+    return {
+      message: "Instructor approved"
+    };
+  }
+
   findOne(id: number) {
     return `This action returns a #${id} instructor`;
   }

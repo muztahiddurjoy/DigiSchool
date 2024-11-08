@@ -4,4 +4,5 @@ export class CreateStudentDto {
   age: number;
   isVolunteer?: boolean;
   grade: string;
+  profileImage?: string;
 }

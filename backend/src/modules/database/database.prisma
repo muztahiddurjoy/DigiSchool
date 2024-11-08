@@ -24,6 +24,7 @@ model StudentProfile {
   id         String  @id
   name       String
   email      String
+  profileImage String?
   contacts   String[]
   isVarified Boolean @default(false) 
   age        Int
