@@ -7,7 +7,7 @@ const TeacherProfile = ({children}:React.PropsWithChildren) => {
     <div className='pt-20'>
     <SidebarProvider>
         <TeacherSidebar/>
-        <main>
+        <main className='w-full'>
             <SidebarTrigger/>
             {children}
         </main>
