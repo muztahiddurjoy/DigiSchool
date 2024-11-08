@@ -17,18 +17,21 @@ export class StudentController {
   constructor(private readonly studentService: StudentService) {}
 
   @Post()
-  create(@Body() createStudentDto: CreateStudentDto, @Req() req: Request) {
+  async create(
+    @Body() createStudentDto: CreateStudentDto,
+    @Req() req: Request
+  ) {
     const user = req.user as { id: string };
     return this.studentService.create(createStudentDto, user.id);
   }
 
   @Get()
-  findAll() {
+  async findAll() {
     return this.studentService.findAll();
   }
 
   @Get(":id")
-  findOne(@Param("id") id: string) {
+  async findOne(@Param("id") id: string) {
     return this.studentService.findOne(id);
   }
 
