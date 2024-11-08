@@ -14,7 +14,7 @@ const Navbar = () => {
           <Link href="/nearest-digischools">Nearest Schools</Link>
         </li>
         <li>
-          <Link href="/">Donors</Link>
+          <Link href="/donation-requests">Donation Requests</Link>
         </li>
         <li>
           <Link href="/">Volunteers</Link>

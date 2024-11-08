@@ -13,7 +13,7 @@ const RegisterFormContainer = () => {
         <CardDescription>Select account type</CardDescription>
       </CardHeader>
       <CardContent>
-        <Tabs defaultValue="account" className="w-full">
+        <Tabs defaultValue="student" className="w-full">
           <TabsList className='w-full'>
             <TabsTrigger className='flex-1' value="student">Student</TabsTrigger>
             <TabsTrigger className='flex-1' value="teacher">Teacher</TabsTrigger>
