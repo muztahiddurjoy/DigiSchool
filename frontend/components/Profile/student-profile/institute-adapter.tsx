@@ -14,7 +14,6 @@ useEffect(()=>{
     console.log(res)
   })
 },[])
-
   return (
     <Card className='rounded-lg my-2 p-3 flex items-center gap-3'>
         <img src="/school.jpg" className='h-[70px] w-[70px] rounded-md object-cover'/>
