@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import {Montserrat} from "next/font/google";
-import "./globals.css";
 import Navbar from "@/components/common/navbar";
 import Footer from "@/components/common/footer";
+import TeacherProfile from "@/components/Profile/teacher-profile";
 
 
 const montserrat = Montserrat({
@@ -14,20 +14,16 @@ export const metadata: Metadata = {
   description: "A School for everyone",
 };
 
-export default function RootLayout({
+export default function TeacherProfileLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${montserrat.className} antialiased`}
-      >
-        <Navbar/>
-        {children}
-        <Footer/>
-      </body>
-    </html>
+    <>
+        <TeacherProfile>
+          {children}
+        </TeacherProfile>
+     </>
   );
 }
