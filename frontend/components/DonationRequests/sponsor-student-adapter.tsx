@@ -1,8 +1,10 @@
 import React from 'react'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '../ui/card'
-import { Button } from '../ui/button'
+import { Button, buttonVariants } from '../ui/button'
 import { Copy, HeartHandshake } from 'lucide-react'
 import Image from 'next/image'
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '../ui/dialog'
+import { Input } from '../ui/input'
 
 const SponsorStudentAdapter = () => {
   return (
@@ -22,7 +24,21 @@ const SponsorStudentAdapter = () => {
         <p className='font-semibold text-sm text-primary'>Needed <span className='text-black'>2000 BDT/month</span></p>
       </CardContent>
       <CardFooter className='flex justify-end'>
-        <Button size="sm"><HeartHandshake size={15}/> Donate</Button>
+        <Dialog>
+          <DialogTrigger className={buttonVariants()}><HeartHandshake size={15}/> Donate</DialogTrigger>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>How Much You Can Donate?</DialogTitle>
+              <DialogDescription>
+                <Input className='mt-5' placeholder='1000 BDT'/>
+                <div className='flex justify-end mt-5'>
+                  <Button size="sm">Donate</Button>
+                </div>
+              </DialogDescription>
+            </DialogHeader>
+          </DialogContent>
+        </Dialog>
+        
       </CardFooter>
     </Card>
   )
