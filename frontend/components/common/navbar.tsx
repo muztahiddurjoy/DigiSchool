@@ -4,7 +4,7 @@ import { Button, buttonVariants } from '../ui/button'
 
 const Navbar = () => {
   return (
-    <div className="fixed top-0 left-0 right-0 backdrop-blur-lg md:px-20 py-3 flex items-center justify-between z-50">
+    <div className="fixed bg-white/60 top-0 left-0 right-0 backdrop-blur-lg md:px-20 py-3 flex items-center justify-between z-50">
       <p className='text-xl font-bold text-primary'>DigiSchool</p>
       <ul className='flex items-center justify-center text-sm font-semibold text-primary gap-5'>
         <li>
