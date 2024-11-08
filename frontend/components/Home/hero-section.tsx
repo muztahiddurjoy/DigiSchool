@@ -11,8 +11,8 @@ const HeroSection = () => {
             <h1 className='text-[#252B42] mt-5 text-6xl font-extrabold uppercase'>A School for Everyone</h1>
             <p className="text-gray-500 text-sm mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, sequi.</p>
             <div className="flex items-center gap-2 mt-3">
-                <Link href={"/login"} className={buttonVariants()}>As Student</Link>
-                <Link href={"/login"} className={buttonVariants({
+                <Link href={"/register"} className={buttonVariants()}>As Student</Link>
+                <Link href={"/register"} className={buttonVariants({
                   variant: 'outline'
                 })}>As Teacher</Link>
             </div>
