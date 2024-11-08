@@ -12,7 +12,6 @@ import { Button } from "@/components/ui/button";
 export default function Home() {
   return (
     <>
-    <Navbar/>
     <HeroSection/>
     <CounterContainer/>
     <LittleBrief/>
@@ -20,7 +19,6 @@ export default function Home() {
     <JoinAsDonor/>
     <RatingContainer/>
     <SponsorCompanies/>
-    <Footer/>
     </>
   );
 }
