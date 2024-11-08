@@ -16,9 +16,6 @@ const Navbar = () => {
         <li>
           <Link href="/donation-requests">Donation Requests</Link>
         </li>
-        <li>
-          <Link href="/">Volunteers</Link>
-        </li>
       </ul>
       <div className="flex justify-end items-center gap-1">
         <Link href="/login" className={buttonVariants({variant:"outline"})}>Login</Link>
